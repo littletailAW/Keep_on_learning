@@ -3,7 +3,7 @@
  * @version: 0.0
  * @Author: Littletail
  * @Date: 2021-03-04 21:51:46
- * @LastEditTime: 2021-03-04 23:34:51
+ * @LastEditTime: 2021-03-04 23:43:06
  */
 #include <iostream>
 #include <windows.h>
@@ -21,7 +21,15 @@ using namespace std;
  *      在需要访问的类中声明其他类的成员函数为友元 eg:friend void Good_Gay::visit();      
  * ****************************************************************************/
 //举一个好朋友访问自己家的例子
-class Good_Gay;
+class Build;
+class Good_Gay
+{
+public:
+    Good_Gay();    //构造函数
+    void visit();  //成员函数可以访问其他类的私有成员
+    void visit1(); //不可以访问其他类的私有成员
+    Build *building;
+};
 class Build
 {
 public:
@@ -89,14 +97,6 @@ void test2()
 }
 /******************************************************************************/
 /* 3、成员函数做友元*/
-class Good_Gay
-{
-public:
-    Good_Gay();    //构造函数
-    void visit();  //成员函数可以访问其他类的私有成员
-    void visit1(); //不可以访问其他类的私有成员
-    Build *building;
-};
 
 Good_Gay::Good_Gay()
 {
